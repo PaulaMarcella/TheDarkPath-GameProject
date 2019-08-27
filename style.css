@@ -1,7 +1,10 @@
 body {
+    display: flex;
+    justify-content: center;
     background-color: black;
 }
 
 #canvas {
-    background-color: lightblue;
+    background-color: lightskyblue;
 }
+
