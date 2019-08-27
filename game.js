@@ -7,7 +7,7 @@ class Game {
 
         this.light = new Flashlight(this, 200, 200, 2, 2, 50);
         this.maze = new Maze(this);
-        this.player = new Character(this, 30, 30, 20);
+        this.player = new Character(this, 30, 30, 15);
         this.control = new Control(this);
         this.control.setKeyBindings();
         this.timer = 0;
@@ -20,6 +20,7 @@ class Game {
         this.maze.draw();
         this.light.drawlight();
         this.player.drawplayer();
+        this.player.setboundries();
         this.light.movelight();
     
     }

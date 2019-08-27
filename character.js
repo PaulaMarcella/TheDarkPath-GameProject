@@ -17,17 +17,26 @@ class Character {
 
     }
 
-    up() {this.y -= 40}
+    up() {this.y -= 10};
           
-    right() {this.x += 40}
+    right() {this.x += 10};
           
-    left() {this.x -= 40}
+    left() {this.x -= 10};
           
-    down() {this.y += 50}
+    down() {this.y += 10};
 
     setboundries() {
 
+        const width = this.ctx.width;
+        const height = this.ctx.width;
 
-    }
+            if (this.x < this.radius || this.x + this.radius > width) {
+            this.x = this.x + 2;
+            }
+            if (this.y < this.radius || this.y + this.radius > height) {
+            this.y = this.y + 2;
+            }
+        };
+
 
 }
