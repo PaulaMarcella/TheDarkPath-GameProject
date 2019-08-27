@@ -1,10 +1,13 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: black;
+    background-image: url("/images/darkgraphity.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #canvas {
-    background-color: lightskyblue;
+    background-color: rgba(111, 123, 161, 0.95);
 }
 

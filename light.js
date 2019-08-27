@@ -7,19 +7,22 @@ class Flashlight {
         this.vy = vy;
         this.radius = radius;
         this.canvas = canvas;
-        // this.ctx = this.canvas.getContext('2d');
         this.ctx = this.game.ctx;
     }
 
     drawlight() {
         this.ctx.beginPath();
-        this.ctx.fillStyle = 'yellow';
+        this.ctx.fillStyle = "rgba(221, 244, 40, 0.5)";
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         this.ctx.fill();
         this.ctx.closePath();
     }
 
-    movelight() {
+    /// You have to fix ---------- HERE
+
+    movelight(delta) {
+            this.vx *= delta;
+            this.vy *= delta;
 
     }
 
