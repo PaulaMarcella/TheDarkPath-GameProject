@@ -31,7 +31,7 @@ class Maze {
     const positionX = cell.column * cellWidth;
     const positionY = cell.row * cellHeight;
     
-    context.fillStyle = `hsla(${ Math.random() * 360 }, 100%, 50%, 1)`;
+    //context.fillStyle = `hsla(${ Math.random() * 360 }, 100%, 50%, 1)`;
 
     context.translate(positionX, positionY);
     

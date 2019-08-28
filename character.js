@@ -1,11 +1,11 @@
 class Character {
-    constructor(game, x, y, radius) {
+    constructor(game) {
         this.game = game;
         this.width = this.game.width;
         this.height = this.game.height;
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
+        this.x = 30;
+        this.y = 30;
+        this.radius = 15;
         this.ctx = this.game.ctx;
     }
  
@@ -19,26 +19,16 @@ class Character {
 
     }
 
-    up() {this.y -= 30};
-          
-    right() {this.x += 30};
-          
-    left() {this.x -= 30};
-          
-    down() {this.y += 30};
+    up() {this.y -= 60};     
+    right() {this.x += 60};
+    left() {this.x -= 60};    
+    down() {this.y += 60};
 
     setboundries() {
-
-        /*
-        if (this.y > this.height || this.y < 0) {
-            this.y =- 1;
-          }
-        if (this.x > this.width || this.x < 0) {
-            this.x =- 1;
-          }
-        */
-       
-        };
-
-
+      
+      if (this.x - this.radius < 0) {this.x += 60;}
+      if (this.x + this.radius > this.width) {this.x -= 60}
+      if (this.y - this.radius < 0) {this.y += 60;}
+      if (this.y + this.radius > this.height) {this.y -= 60}
+    };
 }

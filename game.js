@@ -5,9 +5,9 @@ class Game {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
 
-        this.light = new Flashlight(this, 200, 400, 2, 2, 80);
+        this.light = new Flashlight(this, 200, 400, 3, 4, 80);
         this.maze = new Maze(this);
-        this.player = new Character(this, 30, 30, 15);
+        this.player = new Character(this);
         this.control = new Control(this);
         this.control.setKeyBindings();
         this.timer = 0;
@@ -20,6 +20,7 @@ class Game {
             this.maze.draw();
             this.light.drawlight();
             this.player.drawplayer();
+            this.player.setboundries();
             this.light.movelight();
             this.light.setboundries();
     
@@ -36,19 +37,10 @@ class Game {
               this.timer = timestamp;
             }
             window.requestAnimationFrame((timestamp) => this.loop(timestamp));
-          }   
-
-        // this.ctx.fillStyle = 'black';
-        // this.ctx.translate(100, 100);
-        // this.ctx.rotate(0.25 * Math.PI);
-        // this.ctx.fillRect(0, 0, 100, 100);
-
-    
+          }      
     
     clear () {
-        const width = this.canvas.width;
-        const height = this.canvas.height;
-        this.ctx.clearRect(0, 0, width, height);
+        this.ctx.clearRect(0, 0, this.width, this.height);
         }
 
     }
