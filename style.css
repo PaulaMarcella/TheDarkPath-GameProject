@@ -1,10 +1,21 @@
 body {
-    display: flex;
-    justify-content: center;
     background-image: url("/images/darkgraphity.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#intro{
+    color:white;
+    display:flex;
+    justify-content: center;
+}
+
+#game-div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 500px;
 }
 
 #canvas {

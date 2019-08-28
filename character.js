@@ -3,9 +3,9 @@ class Character {
         this.game = game;
         this.width = this.game.width;
         this.height = this.game.height;
-        this.x = 30;
-        this.y = 30;
-        this.radius = 15;
+        this.x = 40;
+        this.y = 25;
+        this.radius = 19;
         this.ctx = this.game.ctx;
     }
  
@@ -19,17 +19,17 @@ class Character {
 
     }
 
-    up() {this.y -= 60};     
-    right() {this.x += 60};
-    left() {this.x -= 60};    
-    down() {this.y += 60};
+    up() {this.y -= 50};     
+    right() {this.x += 80};
+    left() {this.x -= 80};    
+    down() {this.y += 50};
 
     setboundries() {
 
-      if (this.x < 0) {this.x += 60;}
-      if (this.x > this.width) {this.x -= 60}
-      if (this.y < 0) {this.y += 60;}
-      if (this.y > this.height) {this.y -= 60}
+      if (this.x < 0) {this.x += 80;}
+      if (this.x > this.width) {this.x -= 80}
+      if (this.y < 0) {this.y += 50;}
+      if (this.y > this.height) {this.y -= 50}
     }
 
     collisionLight(){
