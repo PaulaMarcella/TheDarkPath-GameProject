@@ -9,6 +9,11 @@ body {
     color:white;
     display:flex;
     justify-content: center;
+    text-align: center;
+}
+
+h2{
+    padding: 10px;
 }
 
 #game-div {
@@ -19,6 +24,7 @@ body {
 }
 
 #canvas {
-    background-color: rgba(111, 123, 161, 0.95);
+    background-color: rgba(107, 118, 155, 0.65);
+    
 }
 

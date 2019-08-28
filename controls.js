@@ -10,16 +10,16 @@ class Control {
             event.preventDefault();
             switch (key) {
               case 37:
-                this.game.player.left();
+                this.game.player.move("left");
                 break;
               case 38:
-                this.game.player.up();
+                this.game.player.move("up");
                 break;
               case 39:
-                this.game.player.right();
+                this.game.player.move("right");
                 break;
               case 40:
-                this.game.player.down();
+                this.game.player.move("down");
                 break;
             }
           }

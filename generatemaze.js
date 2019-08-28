@@ -238,9 +238,9 @@ const generateMaze = (options) => {
     const start = cell.type === 'START';
     const finish = cell.type === 'FINISH';
     const walls = {
-      top: !!cell.walls[0],
+      up: !!cell.walls[0],
       right: !!cell.walls[1],
-      bottom: !!cell.walls[2],
+      down: !!cell.walls[2],
       left: !!cell.walls[3]
     }
     return {

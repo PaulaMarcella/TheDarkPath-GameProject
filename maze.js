@@ -31,7 +31,6 @@ class Maze {
     const positionX = cell.column * cellWidth;
     const positionY = cell.row * cellHeight;
     
-    //context.fillStyle = `hsla(${ Math.random() * 360 }, 100%, 50%, 1)`;
 
     context.translate(positionX, positionY);
     
@@ -39,7 +38,7 @@ class Maze {
       if (cell.walls[side]) {
         context.beginPath();
         switch (side) {
-          case 'top':
+          case 'up':
             context.moveTo(0, 0);
             context.lineTo(cellWidth, 0);
             break;
@@ -47,7 +46,7 @@ class Maze {
             context.moveTo(cellWidth, 0);
             context.lineTo(cellWidth, cellHeight);
             break;
-          case 'bottom':
+          case 'down':
             context.moveTo(0, cellHeight);
             context.lineTo(cellWidth, cellHeight);
             break;

@@ -8,6 +8,11 @@ class Game {
         this.light = new Flashlight(this, 200, 400, 3, 4, 80);
         this.maze = new Maze(this);
         this.player = new Character(this);
+        this.gold = new Gold(this);
+        this.gold2 = new Gold(this);
+        this.gold3 = new Gold(this);
+        this.gold4 = new Gold(this);
+        this.gold5 = new Gold(this);
         this.control = new Control(this);
         this.control.setKeyBindings();
         this.timer = 0;
@@ -20,14 +25,17 @@ class Game {
           this.maze.draw();
           this.light.drawlight();
           this.player.drawplayer();
-          this.player.setboundries();
           this.light.movelight();
           this.light.setboundries();
           this.player.collisionLight();
+          this.player.finish();
+          this.draw();
+          //this.light.growlight();
     
     }
 
     start () {
+          //this.clear();
           this.loop(0);
           }
 
@@ -46,6 +54,14 @@ class Game {
 
     gameOver(){
         // ADD GAME ENDING FUNCTION HERE
+    }
+
+    draw(){
+        this.gold.drawGold(this.ctx);
+        this.gold2.drawGold(this.ctx);
+        this.gold3.drawGold(this.ctx);
+        this.gold4.drawGold(this.ctx);
+        this.gold5.drawGold(this.ctx);
     }
 }
 

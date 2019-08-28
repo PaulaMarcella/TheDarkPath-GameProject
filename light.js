@@ -6,7 +6,6 @@ class Flashlight {
         this.vx = vx;
         this.vy = vy;
         this.radius = radius;
-        this.GRAVITY = 0.1;
         this.width = this.game.width;
         this.height = this.game.height;
         this.canvas = canvas;
@@ -14,8 +13,13 @@ class Flashlight {
     }
 
     drawlight() {
+        var gradient = this.ctx.createRadialGradient(this.x, this.y, 0 ,this.x, this.y, 100);
+            gradient.addColorStop(0, 'rgba(255, 255, 0, 0.7)');
+            gradient.addColorStop(0.8, 'rgba(255, 255, 255, 0.4)');
+            gradient.addColorStop(1, 'rgba(255, 255, 0, 0.1)');
+
         this.ctx.beginPath();
-        this.ctx.fillStyle = "rgba(221, 244, 40, 0.5)";
+        this.ctx.fillStyle = gradient;
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         this.ctx.fill();
         this.ctx.closePath();
@@ -25,6 +29,10 @@ class Flashlight {
         this.x += this.vx;
         this.y += this.vy;
 
+    }
+
+    growlight() {
+        this.radius += 0.1
     }
 
     setboundries() {

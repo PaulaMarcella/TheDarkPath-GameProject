@@ -1,47 +1,69 @@
 class Character {
-    constructor(game) {
+  constructor(game) {
         this.game = game;
         this.width = this.game.width;
         this.height = this.game.height;
-        this.x = 40;
-        this.y = 25;
+        this.x = 0;
+        this.y = 0;
         this.radius = 19;
         this.ctx = this.game.ctx;
     }
  
-    drawplayer() {
+  drawplayer() {
         
         this.ctx.beginPath();
         this.ctx.fillStyle = 'black';
-        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        this.ctx.arc(40 + this.x * 80, 25 + this.y * 50, this.radius, 0, Math.PI * 2);
         this.ctx.fill();
         this.ctx.closePath();
 
     }
 
-    up() {this.y -= 50};     
-    right() {this.x += 80};
-    left() {this.x -= 80};    
-    down() {this.y += 50};
-
-    setboundries() {
-
-      if (this.x < 0) {this.x += 80;}
-      if (this.x > this.width) {this.x -= 80}
-      if (this.y < 0) {this.y += 50;}
-      if (this.y > this.height) {this.y -= 50}
+    move (direction) {
+      const maze = this.game.maze;
+      const row = this.y;
+      const column = this.x;
+      const cell = maze.matrix[row][column];
+      const directionHasAWall = cell.walls[direction];
+      if (directionHasAWall) return;
+      switch (direction) {
+        case "up":
+          this.y -= 1;
+          break;     
+        case "right":
+          this.x += 1;
+          break;
+        case "left":
+          this.x -= 1;
+          break;    
+        case "down":
+          this.y += 1;
+          break;
+      }
     }
 
+  
+
     collisionLight(){
-      if (this.x >= this.game.light.x - this.game.light.radius && 
-          this.x <= this.game.light.x + this.game.light.radius &&
-          this.y >= this.game.light.y - this.game.light.radius && 
-          this.y <= this.game.light.y + this.game.light.radius) 
-          {
+      const light = this.game.light;
+      const x = 40 + this.x * 80;
+      const y = 25 + this.y * 50;
+      if (x >= light.x - light.radius && 
+          x <= light.x + light.radius &&
+          y >= light.y - light.radius && 
+          y <= light.y + light.radius
+      ) {
           return console.log("GAME OVER");
         }
       
     }
+
+    finish() {
+        if (this.x == 9 && this.y == 9){
+          return console.log("FINISH");
+        }
+      } 
+    
 
 }
 
