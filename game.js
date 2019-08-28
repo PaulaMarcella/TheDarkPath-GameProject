@@ -5,7 +5,7 @@ class Game {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
 
-        this.light = new Flashlight(this, 200, 200, 2, 2, 50);
+        this.light = new Flashlight(this, 200, 400, 2, 2, 80);
         this.maze = new Maze(this);
         this.player = new Character(this, 30, 30, 15);
         this.control = new Control(this);
@@ -16,12 +16,12 @@ class Game {
 
 
     update() {
-        this.clear();
-        this.maze.draw();
-        this.light.drawlight();
-        this.player.drawplayer();
-        this.player.setboundries();
-        this.light.movelight();
+            this.clear();
+            this.maze.draw();
+            this.light.drawlight();
+            this.player.drawplayer();
+            this.light.movelight();
+            this.light.setboundries();
     
     }
 

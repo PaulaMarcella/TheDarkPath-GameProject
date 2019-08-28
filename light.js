@@ -6,6 +6,9 @@ class Flashlight {
         this.vx = vx;
         this.vy = vy;
         this.radius = radius;
+        this.GRAVITY = 0.1;
+        this.width = this.game.width;
+        this.height = this.game.height;
         this.canvas = canvas;
         this.ctx = this.game.ctx;
     }
@@ -18,16 +21,21 @@ class Flashlight {
         this.ctx.closePath();
     }
 
-    /// You have to fix ---------- HERE
-
-    movelight(delta) {
-            this.vx *= delta;
-            this.vy *= delta;
+    movelight() {
+        this.x += this.vx;
+        this.y += this.vy;
 
     }
 
     setboundries() {
 
-    }
+        if (this.y + this.vy > this.height || this.y + this.vy < 0) {
+            this.vy *= -1;
+          }
 
+        if (this.x + this.vx > this.width || this.x + this.vx < 0) {
+            this.vx *= -1;
+          }
+
+    }
 }
