@@ -16,18 +16,19 @@ class Game {
 
 
     update() {
-            this.clear();
-            this.maze.draw();
-            this.light.drawlight();
-            this.player.drawplayer();
-            this.player.setboundries();
-            this.light.movelight();
-            this.light.setboundries();
+          this.clear();
+          this.maze.draw();
+          this.light.drawlight();
+          this.player.drawplayer();
+          this.player.setboundries();
+          this.light.movelight();
+          this.light.setboundries();
+          this.player.collisionLight();
     
     }
 
     start () {
-            this.loop(0);
+          this.loop(0);
           }
 
     loop (timestamp) {
@@ -43,4 +44,9 @@ class Game {
         this.ctx.clearRect(0, 0, this.width, this.height);
         }
 
+    gameOver(){
+        // ADD GAME ENDING FUNCTION HERE
     }
+}
+
+    

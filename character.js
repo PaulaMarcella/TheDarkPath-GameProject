@@ -25,10 +25,24 @@ class Character {
     down() {this.y += 60};
 
     setboundries() {
+
+      if (this.x < 0) {this.x += 60;}
+      if (this.x > this.width) {this.x -= 60}
+      if (this.y < 0) {this.y += 60;}
+      if (this.y > this.height) {this.y -= 60}
+    }
+
+    collisionLight(){
+      if (this.x >= this.game.light.x - this.game.light.radius && 
+          this.x <= this.game.light.x + this.game.light.radius &&
+          this.y >= this.game.light.y - this.game.light.radius && 
+          this.y <= this.game.light.y + this.game.light.radius) 
+          {
+          return console.log("GAME OVER");
+        }
       
-      if (this.x - this.radius < 0) {this.x += 60;}
-      if (this.x + this.radius > this.width) {this.x -= 60}
-      if (this.y - this.radius < 0) {this.y += 60;}
-      if (this.y + this.radius > this.height) {this.y -= 60}
-    };
+    }
+
 }
+
+
