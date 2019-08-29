@@ -19,7 +19,7 @@ class Game {
         this.maze = new Maze(this);
         this.player = new Character(this);        
         this.gold = [new Gold(this), new Gold(this), new Gold(this), new Gold(this)];
-        this.police = [new Police(this), new Police(this), new Police(this)];
+        this.police = [new Police(this), new Police(this), new Police(this), new Police(this)];
         this.car = new Car(this);
         this.control = new Control(this);
         this.gamover = new GameOver(this);
@@ -83,7 +83,7 @@ class Game {
     draw(){
         this.sound.play('backgroundMusic', { volume: 0.5 });
         for (let i = 0; i < this.gold.length; i++){
-            this.gold[i].drawGold() }
+            this.gold[i].drawGold()}
         for (let i = 0; i < this.police.length; i++){
             this.police[i].drawPolice() }
             

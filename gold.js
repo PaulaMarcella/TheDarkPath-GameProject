@@ -18,4 +18,17 @@ class Gold {
 drawGold() {
         this.ctx.drawImage(this.image, this.x* 80, this.y* 50, 80, 50);
       }
+
+avoidoverlap() {
+    const police = this.game.police;
+    const x = this.x;
+    const y = this.y;
+    
+        for (let i = 0; i < police.length; i++) {
+          if (this.x  === police[i].x && this.y === police[i].y) {
+            police.splice(i, 1);   
+            police.push(new Police(this));}
+        }
+}
+
 }
