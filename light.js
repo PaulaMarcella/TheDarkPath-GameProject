@@ -32,7 +32,7 @@ class Flashlight {
     }
 
     growlight() {
-        this.radius += 0.05
+        this.radius += 0.5
 
     }
 

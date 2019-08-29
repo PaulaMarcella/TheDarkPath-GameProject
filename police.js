@@ -4,8 +4,8 @@ class Police {
         this.game = game;
         this.width = this.game.width;
         this.height = this.game.height;
-        this.x = Math.floor(Math.random() * 10);
-        this.y = Math.floor(Math.random() * 10);
+        this.x = 1//Math.floor(Math.random() * 10);
+        this.y = 1//Math.floor(Math.random() * 10);
         this.image = new Image();
         this.image.src = "images/police.png";
         this.ctx = this.game.ctx;

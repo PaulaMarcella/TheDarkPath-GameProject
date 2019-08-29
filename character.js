@@ -58,11 +58,15 @@ class Character {
       const light = this.game.light;
       const x = this.x
       const y = this.y;
-      if (x >= gold.x && 
-          x <= gold.x + 80 &&
-          y >= gold.y &&
-          y <= gold.y + 50
-    ) { return light.shrinklight();}
+
+      for (let i = 0; i < gold.length; i++){
+        if (x === gold[i].x && 
+        y === gold[i].y){
+        console.log("GOLD")
+        light.shrinklight()
+          //gold.push(new Gold(this));
+        }
+        }
     }
 
     collisionPolice() {
@@ -70,11 +74,10 @@ class Character {
       const light = this.game.light;
       const x = this.x
       const y = this.y;
-      if (x >= police.x && 
-        x <= police.x + 80 &&
-        y >= police.y &&
-        y <= police.y + 50
-    ) { return console.log("Police") //light.growlight(); 
+      if ( x === police.x &&
+           y === police.y ) {
+             console.log("POLICE");
+            return light.growlight(); 
   }
 
     }
