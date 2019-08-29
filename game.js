@@ -7,12 +7,9 @@ class Game {
 
         this.light = new Flashlight(this, 200, 400, 3, 4, 80);
         this.maze = new Maze(this);
-        this.player = new Character(this);
-        //this.gold = new Gold(this);
-        
-        this.gold = [new Gold(this)];
-
-        this.police = new Police(this);
+        this.player = new Character(this);        
+        this.gold = [new Gold(this), new Gold(this), new Gold(this)];
+        this.police = [new Police(this), new Police(this), new Police(this)];
         this.control = new Control(this);
         this.control.setKeyBindings();
         this.timer = 0;
@@ -61,8 +58,10 @@ class Game {
 
     draw(){
         for (let i = 0; i < this.gold.length; i++){
-        this.gold[i].drawGold()}
-        this.police.drawPolice(this.ctx);
+        this.gold[i].drawGold() }
+
+        for (let i = 0; i < this.police.length; i++){
+            this.police[i].drawPolice() }
     }
 }
 
