@@ -32,7 +32,12 @@ class Flashlight {
     }
 
     growlight() {
-        this.radius += 0.1
+        this.radius += 0.05
+
+    }
+
+    shrinklight() {
+        this.radius -= 0.05
     }
 
     setboundries() {

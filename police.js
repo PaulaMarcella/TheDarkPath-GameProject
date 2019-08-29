@@ -1,4 +1,4 @@
-class Gold {
+class Police {
     constructor(game) {
 
         this.game = game;
@@ -7,11 +7,11 @@ class Gold {
         this.x = Math.floor(Math.random() * 10);
         this.y = Math.floor(Math.random() * 10);
         this.image = new Image();
-        this.image.src = "images/gold.png";
+        this.image.src = "images/police.png";
         this.ctx = this.game.ctx;
     }
 
-drawGold(){
-        this.ctx.drawImage(this.image, this.x* 80, this.y* 50, 80, 50);
+drawPolice(){
+        this.ctx.drawImage(this.image, this.x*80, this.y*50, 80, 50);
       }
 }

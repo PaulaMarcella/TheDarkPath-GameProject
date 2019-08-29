@@ -42,9 +42,7 @@ class Character {
       }
     }
 
-  
-
-    collisionLight(){
+    collisionLight() {
       const light = this.game.light;
       const x = 40 + this.x * 80;
       const y = 25 + this.y * 50;
@@ -52,10 +50,33 @@ class Character {
           x <= light.x + light.radius &&
           y >= light.y - light.radius && 
           y <= light.y + light.radius
-      ) {
-          return console.log("GAME OVER");
-        }
-      
+      ) { return  this.game.gameOver() }      
+    }
+
+    collisionGold() {
+      const gold = this.game.gold;
+      const light = this.game.light;
+      const x = this.x
+      const y = this.y;
+      if (x >= gold.x && 
+          x <= gold.x + 80 &&
+          y >= gold.y &&
+          y <= gold.y + 50
+    ) { return light.shrinklight();}
+    }
+
+    collisionPolice() {
+      const police = this.game.police;
+      const light = this.game.light;
+      const x = this.x
+      const y = this.y;
+      if (x >= police.x && 
+        x <= police.x + 80 &&
+        y >= police.y &&
+        y <= police.y + 50
+    ) { return console.log("Police") //light.growlight(); 
+  }
+
     }
 
     finish() {
@@ -66,5 +87,3 @@ class Character {
     
 
 }
-
-
