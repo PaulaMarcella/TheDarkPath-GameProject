@@ -7,17 +7,14 @@ class Character {
         this.y = 0;
         this.radius = 19;
         this.ctx = this.game.ctx;
+
+        this.image = new Image();
+        this.image.src = "images/ninja.png";
     }
  
-  drawplayer() {
-        
-        this.ctx.beginPath();
-        this.ctx.fillStyle = 'black';
-        this.ctx.arc(40 + this.x * 80, 25 + this.y * 50, this.radius, 0, Math.PI * 2);
-        this.ctx.fill();
-        this.ctx.closePath();
-
-    }
+  drawplayer(){
+    this.ctx.drawImage(this.image, this.x*80, this.y*50, 80, 50);
+  }
 
     move (direction) {
       const maze = this.game.maze;
@@ -60,11 +57,16 @@ class Character {
       const y = this.y;
 
       for (let i = 0; i < gold.length; i++){
-        if (x === gold[i].x && 
-        y === gold[i].y) {
-        console.log("GOLD")
-        light.shrinklight()
-          //gold.push(new Gold(this));
+        if (x === gold[i].x && y === gold[i].y)
+         {
+        //console.log("GOLD")
+
+// -------FIxed!!!
+
+      
+        gold.splice(i, 1);
+        //gold.push();
+        //light.shrinklight()
         }
       }
     }

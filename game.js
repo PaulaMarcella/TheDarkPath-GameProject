@@ -58,7 +58,7 @@ class Game {
 
     draw(){
         for (let i = 0; i < this.gold.length; i++){
-        this.gold[i].drawGold() }
+            this.gold[i].drawGold() }
 
         for (let i = 0; i < this.police.length; i++){
             this.police[i].drawPolice() }

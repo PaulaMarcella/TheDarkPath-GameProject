@@ -7,7 +7,7 @@ class Gold {
         this.x = Math.floor(Math.random() * 10);
         this.y = Math.floor(Math.random() * 10);
         this.image = new Image();
-        this.image.src = "images/gold.png";
+        this.image.src = "images/money.png";
         this.ctx = this.game.ctx;
     }
 

@@ -1,5 +1,5 @@
 body {
-    background-image: url("/images/darkgraphity.jpg");
+    background-image: url("/images/street\ lights.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,6 +14,7 @@ body {
 
 h2{
     padding: 10px;
+    font-family: monospace;
 }
 
 #game-div {
@@ -24,7 +25,7 @@ h2{
 }
 
 #canvas {
-    background-color: rgba(107, 118, 155, 0.65);
+    background-color: rgba(107, 118, 155, 0.9);
     
 }
 
