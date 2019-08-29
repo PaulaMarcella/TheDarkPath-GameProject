@@ -13,7 +13,7 @@ class Character {
     }
  
   drawplayer(){
-    this.ctx.drawImage(this.image, this.x*80, this.y*50, 80, 50);
+    this.ctx.drawImage(this.image, this.x*80, this.y*50, 50, 50);
   }
 
     move (direction) {
@@ -57,16 +57,10 @@ class Character {
       const y = this.y;
 
       for (let i = 0; i < gold.length; i++){
-        if (x === gold[i].x && y === gold[i].y)
-         {
-        //console.log("GOLD")
-
-// -------FIxed!!!
-
-      
+        if (x === gold[i].x && y === gold[i].y){
+        light.shrinklight();
         gold.splice(i, 1);
-        //gold.push();
-        //light.shrinklight()
+        gold.push(new Gold(this));
         }
       }
     }
@@ -78,10 +72,9 @@ class Character {
       const y = this.y;
 
       for (let i = 0; i < police.length; i++) {
-        if (x === police[i].x && 
-          y === police[i].y) {
-              console.log("POLICE");
-              return light.growlight(); 
+        if (x === police[i].x && y === police[i].y) {
+          light.growlight();
+          police.splice(i, 1);    
         }
       }
 

@@ -10,6 +10,8 @@ body {
     display:flex;
     justify-content: center;
     text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 h2{
