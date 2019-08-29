@@ -43,11 +43,12 @@ class Character {
       const light = this.game.light;
       const x = 40 + this.x * 80;
       const y = 25 + this.y * 50;
-      if (x >= light.x - light.radius && 
-          x <= light.x + light.radius &&
-          y >= light.y - light.radius && 
-          y <= light.y + light.radius
-      ) { return  this.game.gameOver() }      
+      
+    if (x >= light.x - light.radius && 
+        x <= light.x + light.radius &&
+        y >= light.y - light.radius && 
+        y <= light.y + light.radius)
+          { this.game.gameOver() }      
     }
 
     collisionGold() {
@@ -74,7 +75,8 @@ class Character {
       for (let i = 0; i < police.length; i++) {
         if (x === police[i].x && y === police[i].y) {
           light.growlight();
-          police.splice(i, 1);    
+          police.splice(i, 1);   
+          police.push(new Police(this)); 
         }
       }
 
@@ -82,6 +84,7 @@ class Character {
 
     finish() {
         if (this.x == 9 && this.y == 9){
+          this.game.win()
           return console.log("FINISH");
         }
       } 

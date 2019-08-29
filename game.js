@@ -12,9 +12,12 @@ class Game {
         this.police = [new Police(this), new Police(this), new Police(this)];
         this.car = new Car(this);
         this.control = new Control(this);
+        this.gamover = new GameOver(this);
+        this.win = new Win(this);
         this.control.setKeyBindings();
         this.timer = 0;
         this.SPEED = 5;
+        this.gameStatus = "game";
     }
 
 
@@ -41,22 +44,30 @@ class Game {
           }
 
     loop (timestamp) {
-        if (this.timer < timestamp - this.SPEED) {
+        if (this.gameStatus === "game") {
 
-            this.update();
-            this.timer = timestamp;
+            if (this.timer < timestamp - this.SPEED) {
+
+                this.update();
+                this.timer = timestamp;
+                }
+
+            window.requestAnimationFrame((timestamp) => this.loop(timestamp));
             }
-        window.requestAnimationFrame((timestamp) => this.loop(timestamp));
-          }      
+
+        else if (this.gameStatus === "game-over") {
+            this.gamover.drawLoose();
+        }
+        
+        else if(this.gameStatus === "win"){
+            this.win.drawWin();
+        }
+    }
     
     clear () {
         this.ctx.clearRect(0, 0, this.width, this.height);
         }
 
-    gameOver(){
-        this.start()
-        console.log('GAME OVER')
-    }
 
     draw(){
         for (let i = 0; i < this.gold.length; i++){
@@ -64,6 +75,14 @@ class Game {
         for (let i = 0; i < this.police.length; i++){
             this.police[i].drawPolice() }
     }
-}
 
-    
+    gameOver(){
+        console.log('GAME OVER')
+        this.gameStatus = "game-over";
+    }
+
+    win(){
+        console.log('FINISH')
+        this.gameStatus = "win";
+    }
+}
