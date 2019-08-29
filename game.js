@@ -1,3 +1,13 @@
+const SOUNDS = {
+    backgroundMusic: "/music/policecase.mp3",
+    cop: "/music/OnePoliceSiren.mp3",
+    cash: "/music/cash.mp3",
+    caught: "/music/CopandHeli.mp3",
+    winlaugh: "/music/EvilLaughLong.mp3",
+    prison: "/music/prison.mp3",
+    cardriving: "/music/Cardriving.mp3"
+  };
+
 class Game {
     constructor(canvas) {
         this.canvas = canvas;
@@ -14,6 +24,8 @@ class Game {
         this.control = new Control(this);
         this.gamover = new GameOver(this);
         this.win = new Win(this);
+        this.sound = new Sound();
+        this.sound.loadSounds(SOUNDS);
         this.control.setKeyBindings();
         this.timer = 0;
         this.SPEED = 5;
@@ -39,7 +51,6 @@ class Game {
     }
 
     start () {
-          //this.clear();
           this.loop(0);
           }
 
@@ -70,14 +81,15 @@ class Game {
 
 
     draw(){
+        this.sound.play('backgroundMusic', { volume: 0.5 });
         for (let i = 0; i < this.gold.length; i++){
             this.gold[i].drawGold() }
         for (let i = 0; i < this.police.length; i++){
             this.police[i].drawPolice() }
+            
     }
 
     gameOver(){
-        console.log('GAME OVER')
         this.gameStatus = "game-over";
     }
 }

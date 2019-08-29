@@ -48,7 +48,10 @@ class Character {
         x <= light.x + light.radius &&
         y >= light.y - light.radius && 
         y <= light.y + light.radius)
-          { this.game.gameOver() }      
+          {
+            this.game.sound.play('prison', { volume: 1 });
+            this.game.sound.play('caught', { volume: 1 });
+            this.game.gameOver() }
     }
 
     collisionGold() {
@@ -59,6 +62,7 @@ class Character {
 
       for (let i = 0; i < gold.length; i++){
         if (x === gold[i].x && y === gold[i].y){
+        this.game.sound.play('cash', { volume: 1 });
         light.shrinklight();
         gold.splice(i, 1);
         gold.push(new Gold(this));
@@ -74,6 +78,7 @@ class Character {
 
       for (let i = 0; i < police.length; i++) {
         if (x === police[i].x && y === police[i].y) {
+          this.game.sound.play('cop', { volume: 1 });
           light.growlight();
           police.splice(i, 1);   
           police.push(new Police(this)); 
@@ -85,7 +90,8 @@ class Character {
     finish() {
         if (this.x == 9 && this.y == 9){
           this.game.gameStatus = "win";
-          return console.log("FINISH");
+          this.game.sound.play('cardriving', { volume: 1 });
+          this.game.sound.play('winlaugh', { volume: 1 });
         }
       } 
     

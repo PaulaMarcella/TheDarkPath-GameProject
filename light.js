@@ -32,14 +32,17 @@ class Flashlight {
     }
 
     growlight() {
-        this.radius += 20;
-        this.vx *= 1.08;
-        this.vy *= 1.08;
+        if (this.radius < 40)
+            {this.radius -= 6
+            this.radius += 20;
+            this.vx *= 1.1;
+            this.vy *= 1.1;}
 
     }
 
     shrinklight() {
-        this.radius -= 10
+        if (this.radius > 10){
+        this.radius -= 6}
     }
 
     setboundries() {

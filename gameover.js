@@ -15,11 +15,11 @@ class GameOver {
     }
 
     drawLoose(){
-        this.ctx.drawImage(this.image, this.x1, this.y, this.width, this.height);
-        this.ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);  
+        this.ctx.drawImage(this.image, this.x1 += 1, this.y, this.width, this.height);
+        this.ctx.drawImage(this.image, this.x2 -=1, this.y, this.width, this.height);  
         this.ctx.font = '70px monospace';
         this.ctx.fillStyle= "yellow";
-        this.ctx.fillText("YOU ARE ARRESTED",50, 250); 
+        this.ctx.fillText("YOU ARE ARRESTED",50, 275); 
         }
 /*
     update(){
