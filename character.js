@@ -84,7 +84,7 @@ class Character {
 
     finish() {
         if (this.x == 9 && this.y == 9){
-          this.game.win()
+          this.game.gameStatus = "win";
           return console.log("FINISH");
         }
       } 

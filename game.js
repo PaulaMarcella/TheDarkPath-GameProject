@@ -80,9 +80,4 @@ class Game {
         console.log('GAME OVER')
         this.gameStatus = "game-over";
     }
-
-    win(){
-        console.log('FINISH')
-        this.gameStatus = "win";
-    }
 }
