@@ -31,12 +31,10 @@ class Flashlight {
 
     }
 
-    growlight() {
-        if (this.radius < 40)
-            {this.radius -= 6
+    growlight() {            
             this.radius += 20;
-            this.vx *= 1.1;
-            this.vy *= 1.1;}
+            this.vx *= 1.5;
+            this.vy *= 1.5;
 
     }
 

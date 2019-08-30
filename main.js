@@ -3,3 +3,4 @@ window.addEventListener('load', function() {
   const game = new Game($canvas);
   game.start();
 });
+

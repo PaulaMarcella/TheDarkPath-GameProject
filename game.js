@@ -19,7 +19,7 @@ class Game {
         this.maze = new Maze(this);
         this.player = new Character(this);        
         this.gold = [new Gold(this), new Gold(this), new Gold(this), new Gold(this)];
-        this.police = [new Police(this), new Police(this), new Police(this), new Police(this)];
+        this.police = [new Police(this), new Police(this), new Police(this), new Police(this), new Police(this)];
         this.car = new Car(this);
         this.control = new Control(this);
         this.gamover = new GameOver(this);
@@ -63,16 +63,19 @@ class Game {
                 this.timer = timestamp;
                 }
 
-            window.requestAnimationFrame((timestamp) => this.loop(timestamp));
+            //window.requestAnimationFrame((timestamp) => this.loop(timestamp));
             }
 
         else if (this.gameStatus === "game-over") {
             this.gamover.drawLoose();
+            this.gamover.update();
+
         }
         
         else if(this.gameStatus === "win"){
             this.win.drawWin();
         }
+        window.requestAnimationFrame((timestamp) => this.loop(timestamp));
     }
     
     clear () {
