@@ -67,8 +67,10 @@ class Character {
     for (let i = 0; i < gold.length; i++) {
       if (x === gold[i].x && y === gold[i].y) {
         this.game.sound.play('cash', {
-          volume: 1
-        });
+          volume: 1});
+          //console.log(this.count)
+        console.log(this.game.counter)
+        this.game.counter.count += 1;
         light.shrinklight();
         gold.splice(i, 1);
         gold.push(new Gold(this));
@@ -84,9 +86,7 @@ class Character {
 
     for (let i = 0; i < police.length; i++) {
       if (x === police[i].x && y === police[i].y) {
-        this.game.sound.play('cop', {
-          volume: 1
-        });
+        this.game.sound.play('cop', {volume: 1});
         light.growlight();
         police.splice(i, 1);
         police.push(new Police(this));

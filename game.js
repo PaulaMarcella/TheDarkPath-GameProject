@@ -25,6 +25,7 @@ class Game {
         this.gamover = new GameOver(this);
         this.win = new Win(this);
         this.sound = new Sound();
+        this.counter = new Counter(this);
         this.sound.loadSounds(SOUNDS);
         this.control.setKeyBindings();
         this.timer = 0;
@@ -44,6 +45,7 @@ class Game {
         this.player.finish();
         this.player.collisionGold();
         this.player.collisionPolice();
+        this.counter.drawCount();
         //this.gold.checkOverlap();
         this.draw();
     }
@@ -78,15 +80,14 @@ class Game {
 
 
     draw() {
-        this.sound.play('backgroundMusic', {
-            volume: 0.5
-        });
+        this.sound.play('backgroundMusic', {volume: 0.5});
         for (let i = 0; i < this.gold.length; i++) {
             this.gold[i].drawGold()
         }
         for (let i = 0; i < this.police.length; i++) {
             this.police[i].drawPolice()
         }
+
     }
 
     gameOver() {
