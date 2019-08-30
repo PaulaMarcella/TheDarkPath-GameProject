@@ -67,9 +67,7 @@ class Character {
     for (let i = 0; i < gold.length; i++) {
       if (x === gold[i].x && y === gold[i].y) {
         this.game.sound.play('cash', {
-          volume: 1});
-          //console.log(this.count)
-        console.log(this.game.counter)
+          volume: 1});        
         this.game.counter.count += 1;
         light.shrinklight();
         gold.splice(i, 1);

@@ -18,7 +18,7 @@ class Game {
         this.light = new Flashlight(this, 200, 400, 2, 1, 80);
         this.maze = new Maze(this);
         this.player = new Character(this);
-        this.gold = [new Gold(this), new Gold(this), new Gold(this), new Gold(this)];
+        this.gold = [new Gold(this), new Gold(this), new Gold(this), new Gold(this), new Gold(this), new Gold(this)];
         this.police = [new Police(this), new Police(this), new Police(this), new Police(this), new Police(this)];
         this.car = new Car(this);
         this.control = new Control(this);
