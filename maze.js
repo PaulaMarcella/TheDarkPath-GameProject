@@ -6,7 +6,7 @@ class Maze {
     this.matrix = generateMaze();
   }
 
-  draw () {
+  draw() {
     const matrix = this.matrix;
     for (let row of matrix) {
       for (let cell of row) {
@@ -30,10 +30,10 @@ class Maze {
 
     const positionX = cell.column * cellWidth;
     const positionY = cell.row * cellHeight;
-    
+
 
     context.translate(positionX, positionY);
-    
+
     for (let side in cell.walls) {
       if (cell.walls[side]) {
         context.beginPath();

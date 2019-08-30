@@ -213,7 +213,9 @@ function renderWall(wallIndex, column, row, cellSizePx, context) {
 }
 
 function renderCell(cell, column, row, cellSizePx, context) {
-  const { walls } = cell;
+  const {
+    walls
+  } = cell;
 
   renderMarker(cell, column, row, cellSizePx, context);
   walls.forEach((wall, i) => wall && renderWall(i, column, row, cellSizePx, context));

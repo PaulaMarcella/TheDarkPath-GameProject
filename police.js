@@ -12,14 +12,14 @@ class Police {
         this.image.src = "images/police.png";
         this.ctx = this.game.ctx;
 
-        function _getRandomInteger(min, max){
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min)) + min;
+        function _getRandomInteger(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
         }
     }
 
-drawPolice(){
-        this.ctx.drawImage(this.image, this.x*80, this.y*50, 80, 50);
-      }
+    drawPolice() {
+        this.ctx.drawImage(this.image, this.x * 80, this.y * 50, 80, 50);
+    }
 }

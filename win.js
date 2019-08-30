@@ -12,7 +12,7 @@ class Win {
         this.ctx = this.game.ctx;
     }
 
-    drawWin(){
+    drawWin() {
         this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-        }
+    }
 }

@@ -11,7 +11,7 @@ class Car {
         this.ctx = this.game.ctx;
     }
 
-drawCar() {
-        this.ctx.drawImage(this.image, this.x*80, this.y*50, 80, 40);
-      }
+    drawCar() {
+        this.ctx.drawImage(this.image, this.x * 80, this.y * 50, 80, 40);
+    }
 }

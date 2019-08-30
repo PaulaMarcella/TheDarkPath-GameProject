@@ -10,25 +10,25 @@ class Gold {
         this.image.src = "images/money.png";
         this.ctx = this.game.ctx;
 
-        function _getRandomInteger(min, max){
+        function _getRandomInteger(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min)) + min; }
+            return Math.floor(Math.random() * (max - min)) + min;
         }
-drawGold() {
-        this.ctx.drawImage(this.image, this.x* 80, this.y* 50, 50, 50);
-      }
-
-avoidoverlap() {
-    const police = this.game.police;
-    const x = this.x;
-    const y = this.y;
-    
-        for (let i = 0; i < police.length; i++) {
-          if (this.x  === police[i].x && this.y === police[i].y) {
-            police.splice(i, 1);   
-            police.push(new Police(this));}
-        }
+    }
+    drawGold() {
+        this.ctx.drawImage(this.image, this.x * 80, this.y * 50, 50, 50);
+    }
 }
 
+
+/*
+checkOverlap(){
+    for (let i = 0; i < this.game.police.length; i++){
+        if (this.x === this.game.police[i].x && this.y === this.game.police[i].y) {
+        this.game.police.splice(i, 1);   
+        this.game.police.push(new Police(this));
+    }
+        else {console.log(this.x)}}
 }
+*/

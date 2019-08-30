@@ -13,10 +13,10 @@ class Flashlight {
     }
 
     drawlight() {
-        var gradient = this.ctx.createRadialGradient(this.x, this.y, 0 ,this.x, this.y, 100);
-            gradient.addColorStop(0, 'rgba(255, 255, 0, 0.7)');
-            gradient.addColorStop(0.8, 'rgba(255, 255, 255, 0.4)');
-            gradient.addColorStop(1, 'rgba(255, 255, 0, 0.1)');
+        var gradient = this.ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 100);
+        gradient.addColorStop(0, 'rgba(255, 255, 0, 0.7)');
+        gradient.addColorStop(0.8, 'rgba(255, 255, 255, 0.4)');
+        gradient.addColorStop(1, 'rgba(255, 255, 0, 0.1)');
 
         this.ctx.beginPath();
         this.ctx.fillStyle = gradient;
@@ -31,27 +31,27 @@ class Flashlight {
 
     }
 
-    growlight() {            
-            this.radius += 20;
-            this.vx *= 1.5;
-            this.vy *= 1.5;
+    growlight() {
+        this.radius += 20;
+        this.vx *= 1.3;
+        this.vy *= 1.3;
 
     }
 
     shrinklight() {
-        if (this.radius > 10){
-        this.radius -= 6}
+        if (this.radius > 10) {
+            this.radius -= 6
+        }
     }
 
     setboundries() {
 
         if (this.y + this.vy > this.height || this.y + this.vy < 0) {
             this.vy *= -1;
-          }
+        }
 
         if (this.x + this.vx > this.width || this.x + this.vx < 0) {
             this.vx *= -1;
-          }
-
+        }
     }
 }

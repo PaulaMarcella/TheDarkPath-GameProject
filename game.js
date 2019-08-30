@@ -6,7 +6,7 @@ const SOUNDS = {
     winlaugh: "/music/EvilLaughLong.mp3",
     prison: "/music/prison.mp3",
     cardriving: "/music/Cardriving.mp3"
-  };
+};
 
 class Game {
     constructor(canvas) {
@@ -17,7 +17,7 @@ class Game {
 
         this.light = new Flashlight(this, 200, 400, 2, 1, 80);
         this.maze = new Maze(this);
-        this.player = new Character(this);        
+        this.player = new Character(this);
         this.gold = [new Gold(this), new Gold(this), new Gold(this), new Gold(this)];
         this.police = [new Police(this), new Police(this), new Police(this), new Police(this), new Police(this)];
         this.car = new Car(this);
@@ -32,68 +32,64 @@ class Game {
         this.gameStatus = "game";
     }
 
-
     update() {
-          this.clear();
-          this.maze.draw();
-          this.light.drawlight();
-          this.player.drawplayer();
-          this.car.drawCar();
-          this.light.movelight();
-          this.light.setboundries();
-          this.player.collisionLight();
-          this.player.finish();
-          this.player.collisionGold();
-          this.player.collisionPolice();
-          this.draw();
-
-    
+        this.clear();
+        this.maze.draw();
+        this.light.drawlight();
+        this.player.drawplayer();
+        this.car.drawCar();
+        this.light.movelight();
+        this.light.setboundries();
+        this.player.collisionLight();
+        this.player.finish();
+        this.player.collisionGold();
+        this.player.collisionPolice();
+        //this.gold.checkOverlap();
+        this.draw();
     }
 
-    start () {
-          this.loop(0);
-          }
+    start() {
+        this.loop(0);
+    }
 
-    loop (timestamp) {
+    loop(timestamp) {
         if (this.gameStatus === "game") {
 
             if (this.timer < timestamp - this.SPEED) {
 
                 this.update();
                 this.timer = timestamp;
-                }
-
-            //window.requestAnimationFrame((timestamp) => this.loop(timestamp));
             }
 
-        else if (this.gameStatus === "game-over") {
+            //window.requestAnimationFrame((timestamp) => this.loop(timestamp));
+        } else if (this.gameStatus === "game-over") {
             this.gamover.drawLoose();
             this.gamover.update();
 
-        }
-        
-        else if(this.gameStatus === "win"){
+        } else if (this.gameStatus === "win") {
             this.win.drawWin();
         }
         window.requestAnimationFrame((timestamp) => this.loop(timestamp));
     }
-    
-    clear () {
+
+    clear() {
         this.ctx.clearRect(0, 0, this.width, this.height);
-        }
-
-
-    draw(){
-        this.sound.play('backgroundMusic', { volume: 0.5 });
-        for (let i = 0; i < this.gold.length; i++){
-            this.gold[i].drawGold()
-            this.gold[i].avoidoverlap()}
-        for (let i = 0; i < this.police.length; i++){
-            this.police[i].drawPolice() }
-            
     }
 
-    gameOver(){
+
+    draw() {
+        this.sound.play('backgroundMusic', {
+            volume: 0.5
+        });
+        for (let i = 0; i < this.gold.length; i++) {
+            this.gold[i].drawGold()
+        }
+        for (let i = 0; i < this.police.length; i++) {
+            this.police[i].drawPolice()
+        }
+    }
+
+    gameOver() {
         this.gameStatus = "game-over";
     }
 }
