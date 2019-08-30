@@ -9,7 +9,7 @@ class GameOver {
         this.image = new Image();
         this.image.src = "images/prisonbars.png";
         this.ctx = this.game.ctx;
-        this.speed1 = 10;
+        this.speed1 = 20;
         this.speed2 = 0;
     }
 

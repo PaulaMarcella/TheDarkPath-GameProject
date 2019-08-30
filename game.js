@@ -86,7 +86,8 @@ class Game {
     draw(){
         this.sound.play('backgroundMusic', { volume: 0.5 });
         for (let i = 0; i < this.gold.length; i++){
-            this.gold[i].drawGold()}
+            this.gold[i].drawGold()
+            this.gold[i].avoidoverlap()}
         for (let i = 0; i < this.police.length; i++){
             this.police[i].drawPolice() }
             

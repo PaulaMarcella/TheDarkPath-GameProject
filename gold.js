@@ -16,7 +16,7 @@ class Gold {
             return Math.floor(Math.random() * (max - min)) + min; }
         }
 drawGold() {
-        this.ctx.drawImage(this.image, this.x* 80, this.y* 50, 80, 50);
+        this.ctx.drawImage(this.image, this.x* 80, this.y* 50, 50, 50);
       }
 
 avoidoverlap() {
